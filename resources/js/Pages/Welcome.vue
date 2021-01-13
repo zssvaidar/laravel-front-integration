@@ -4,6 +4,7 @@
       {{canRegister}}<br>
       {{laravelVersion}} <br>
       {{phpVersion}}
+      
     </div>
 </template>
 

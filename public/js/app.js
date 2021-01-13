@@ -5953,6 +5953,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     canLogin: Boolean,
@@ -5988,12 +5989,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     canLogin: Boolean,
     canRegister: Boolean,
     laravelVersion: String,
-    phpVersion: String
+    phpVersion: String,
+    nice1: String,
+    board: Array
   }
 });
 
@@ -36289,7 +36302,7 @@ var render = function() {
     _c("br"),
     _vm._v("\n  " + _vm._s(_vm.laravelVersion) + " "),
     _c("br"),
-    _vm._v("\n  " + _vm._s(_vm.phpVersion) + "\n")
+    _vm._v("\n  " + _vm._s(_vm.phpVersion) + "\n  \n")
   ])
 }
 var staticRenderFns = []
@@ -36315,15 +36328,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n  " + _vm._s(_vm.canLogin)),
-    _c("br"),
-    _vm._v("\n  " + _vm._s(_vm.canRegister)),
-    _c("br"),
-    _vm._v("\n  " + _vm._s(_vm.laravelVersion) + " "),
-    _c("br"),
-    _vm._v("\n  " + _vm._s(_vm.phpVersion) + "\n")
-  ])
+  return _c(
+    "div",
+    [
+      _vm._v("\n  " + _vm._s(_vm.canLogin)),
+      _c("br"),
+      _vm._v("\n  " + _vm._s(_vm.canRegister)),
+      _c("br"),
+      _vm._v("\n  " + _vm._s(_vm.laravelVersion) + " "),
+      _c("br"),
+      _vm._v(
+        "\n  " +
+          _vm._s(_vm.phpVersion) +
+          "\n  " +
+          _vm._s(_vm.nice1) +
+          "\n  " +
+          _vm._s(_vm.board) +
+          "\n\n"
+      ),
+      _vm._l(_vm.board, function(item, index) {
+        return _c("div", [
+          _vm._v(
+            "\n    " + _vm._s(index) + "\n    " + _vm._s(item.title) + "\n"
+          )
+        ])
+      }),
+      _vm._v("\n" + _vm._s(_vm.board) + "\n  \n\n")
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -4,6 +4,16 @@
       {{canRegister}}<br>
       {{laravelVersion}} <br>
       {{phpVersion}}
+      {{nice1}}
+      {{board}}
+
+    <div v-for="(item, index) in board">
+        {{index}}
+        {{item.title}}
+    </div>
+    {{board}}
+      
+    
     </div>
 </template>
 
@@ -18,6 +28,8 @@
             canRegister: Boolean,
             laravelVersion: String,
             phpVersion: String,
+            nice1: String,
+            board: Array,
         }
     }
 </script>

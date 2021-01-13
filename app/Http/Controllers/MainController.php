@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Inertia\Inertia;    
 use App\Models\User;
+use App\Models\Board;
 
 class MainController extends Controller
 {
@@ -29,38 +30,39 @@ class MainController extends Controller
         // if(Auth::attempt(['email' => $email, 'password' => $password]))
             // error.log('nice');
         // Auth::login($new, true);
-        return Inertia::render('main', [
-//             'canLogin' => Route::has('login'),
-//             'canRegister' => Route::has('register'),
-//             'laravelVersion' => Application::VERSION,
-//             'phpVersion' => PHP_VERSION,
-//             'nice1'=>'very nice',
-//             'users' => User::,
+            $data = Board::all();
+            return Inertia::render('main', [
+                'canLogin' => Route::has('login'),
+                'nice1'=> 'very nice',
+                'canRegister' => Route::has('register'),
+                'laravelVersion' => Application::VERSION,
+                'phpVersion' => PHP_VERSION,
+                'board' => Board::all(),
             
-//         ]);
-//     }
-// }
-
-            'filters' => Request::all('search', 'role', 'trashed'),
-            'users' => Auth::user()//->account->users()
-                ->orderBy('first_name')
-                // ->filter(Request::only('search', 'role', 'trashed'))
-                ->get()
-                ->transform(function ($user) {
-                    return [
-                        'canLogin' => Route::has('login'),
-                        'canRegister' => Route::has('register'),
-                        'laravelVersion' => Application::VERSION,
-                        'phpVersion' => PHP_VERSION,
-                        'nice1'=>'very nice'
-                        // 'id' => $user->id,
-                        // 'name' => $user->name,
-                        // 'email' => $user->email,
-                        // 'owner' => $user->owner,
-                        // 'photo' => $user->photoUrl(['w' => 40, 'h' => 40, 'fit' => 'crop']),
-                        // 'deleted_at' => $user->deleted_at,
-                    ];
-                }),
         ]);
     }
 }
+//             'filters' => Request::all('search', 'role', 'trashed'),
+//             'users' => Auth::user()//->account->users()
+//                 ->orderBy('first_name')
+//                 // ->filter(Request::only('search', 'role', 'trashed'))
+//                 ->get()
+//                 ->transform(function ($user) {
+//                     return [
+//                         'canLogin' => Route::has('login'),
+//                         'nice1'=> 'very nice',
+//                         'canRegister' => Route::has('register'),
+//                         'laravelVersion' => Application::VERSION,
+//                         'phpVersion' => PHP_VERSION,
+//                         'board' => Board::all(),
+//                         // 'id' => $user->id,
+//                         // 'name' => $user->name,
+//                         // 'email' => $user->email,
+//                         // 'owner' => $user->owner,
+//                         // 'photo' => $user->photoUrl(['w' => 40, 'h' => 40, 'fit' => 'crop']),
+//                         // 'deleted_at' => $user->deleted_at,
+//                     ];
+//                 }),
+//         ]);
+//     }
+// }
